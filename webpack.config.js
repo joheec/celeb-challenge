@@ -1,19 +1,38 @@
-const { join } = require('path');
-const webpackConfig = {
-	entry: './src/js/application.jsx',
+const { resolve } = require('path');
+const webpack = require('webpack');
+
+module.exports = {
+	context: resolve(__dirname, 'src'),
+	entry: [
+		'react-hot-loader/patch',
+		'webpack-dev-server/client?http://localhost:8080',
+		'webpack/hot/only-dev-server',
+		'./js/application.jsx'
+	],
 	output: {
-		path: join(__dirname, 'dist'),
-		filename: 'application-bundle.js'
+		filename: 'bundle.js',
+		path: resolve(__dirname, 'dist'),
+		publicPath: '/'
 	},
-	resolve: {
-		extensions: ['.js', '.jsx'],
+	devtool: 'inline-source-map',
+	devServer: {
+		hot: true,
+		contentBase: resolve(__dirname, 'dist'),
+		publicPath: '/'
 	},
 	module: {
 		rules: [{
-			test: /.jsx$/,
-			use: ['babel-loader'],
-		}]
+			test: /\.jsx?$/,
+			use: ['babel-loader',],
+			exclude: /node_modules/
+		},
+		{
+			test: /\.css$/,
+			use: [ 'style-loader', 'css-loader?modules', 'postcss-loader', ],
+		},],
 	},
+	plugins: [
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.NamedModulesPlugin(),
+	],
 }
-
-module.exports = webpackConfig;
