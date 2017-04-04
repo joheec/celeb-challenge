@@ -26,3 +26,10 @@ Q: What did you think of this test?
 A: I think it's appropriate for front end development. A good exercise to see a little bit of everything such as seeing how someone would set up a grid in css, appending elements to the dom, adding event listeners and etc.
 
 ~Diana Lozano
+
+
+Steps to run
+
+1. `npm install`
+2. `npm start`
+3. Go to `localhost:8080
