@@ -36,9 +36,9 @@ function submitCard(dispatch, name, photo) {
 
 const CardForm = connect()(AddCard);
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ cards }) => {
 	return {
-		cards: state
+		cards
 	};
 };
 

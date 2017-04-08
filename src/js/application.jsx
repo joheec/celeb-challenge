@@ -3,8 +3,11 @@ import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 
-import Store from './store.js';
+import { createStore } from 'redux';
+import reducer from './reducers';
 import CardApp from './CardApp.jsx';
+
+let store = createStore(reducer);
 
 const addInitialCards = () => {
 	let initialData = [
@@ -18,7 +21,7 @@ const addInitialCards = () => {
     { name: "Arnold Schwartzengger", photo: "../img/avatars/arnold.png" }
 	];
 	initialData.map(card => {
-		Store.dispatch({
+		store.dispatch({
 			type: 'ADD_CARD',
 			name: card.name,
 			photo: card.photo
@@ -33,8 +36,10 @@ const root = document.createElement('div');
 document.body.append(root);
 
 ReactDom.render(
-	<Provider store={ Store }>
- 		<CardApp />
- 	</Provider>, 
+	<AppContainer>
+		<Provider store={ store }>
+ 			<CardApp />
+ 		</Provider>
+ 	</AppContainer>, 
 	root
 );

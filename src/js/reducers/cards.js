@@ -1,6 +1,4 @@
-import { createStore } from 'redux';
-
-export const cardsReducer = (state = [], action) => {
+export default (state = [], action) => {
 	switch (action.type) {
 		case 'ADD_CARD': 
 			return [
@@ -14,7 +12,3 @@ export const cardsReducer = (state = [], action) => {
 			return state;
 	}
 };
-
-
-export default createStore(cardsReducer);
-
