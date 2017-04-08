@@ -1,3 +1,4 @@
+const HtmlPlugin = require('html-webpack-plugin');
 const { resolve } = require('path');
 const webpack = require('webpack');
 
@@ -17,7 +18,7 @@ module.exports = {
 	devtool: 'inline-source-map',
 	devServer: {
 		hot: true,
-		contentBase: resolve(__dirname, 'dist'),
+		contentBase: 'src/',
 		publicPath: '/'
 	},
 	module: {
@@ -25,13 +26,16 @@ module.exports = {
 			test: /\.jsx?$/,
 			use: ['babel-loader',],
 			exclude: /node_modules/
-		},
-		{
+		}, {
 			test: /\.css$/,
 			use: [ 'style-loader', 'css-loader?modules', 'postcss-loader', ],
-		},],
+		}, {
+			test: /\.png$/,
+			use: ['file-loader'],
+		}],
 	},
 	plugins: [
+		new HtmlPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NamedModulesPlugin(),
 	],
