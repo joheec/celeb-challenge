@@ -1,5 +1,7 @@
 import React from 'react';
-import {connect } from 'react-redux';
+import { connect } from 'react-redux';
+
+import '../css/application.scss';
 
 const AddCard = ({ dispatch }) => {
 	let name;
@@ -45,7 +47,13 @@ const mapStateToProps = ({ cards }) => {
 const Cards = ({ cards }) => {
 	return (
 		<div>
-			{cards.map(card => <img key={card.name} src={card.photo} alt={card.name} height="42" width="42"/> )}
+			{cards.map(card => 
+				<div key={card.name} className='card'>
+					<button className="close-button">x</button>
+					<img src={card.photo} alt={card.name} height="42" width="42"/> 
+					<span>{card.name}</span>
+				</div>
+			)}
 		</div>
 	);
 };

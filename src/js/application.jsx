@@ -11,14 +11,14 @@ let store = createStore(reducer);
 
 const addInitialCards = () => {
 	let initialData = [
-//		{ name: "Mark-Paul Gosselaar", photo: "" },
-    { name: "Delta Burke", photo: "../img/avatars/delta.png" },
-    { name: "Alf", photo: "../img/avatars/alf.png" },
-    { name: "Jaleel White", photo: "../img/avatars/jaleel.png" },
-    { name: "Ralph Macchio", photo: "../img/avatars/ralph.png" },
-    { name: "Candace Cameron", photo: "../img/avatars/candace.png" },
+    { name: "Arnold Schwartzengger", photo: "../img/avatars/arnold.png" },
     { name: "Patrick Duffy", photo: "../img/avatars/pduff.png" },
-    { name: "Arnold Schwartzengger", photo: "../img/avatars/arnold.png" }
+    { name: "Candace Cameron", photo: "../img/avatars/candace.png" },
+    { name: "Ralph Macchio", photo: "../img/avatars/ralph.png" },
+    { name: "Jaleel White", photo: "../img/avatars/jaleel.png" },
+    { name: "Alf", photo: "../img/avatars/alf.png" },
+    { name: "Delta Burke", photo: "../img/avatars/delta.png" },
+		{ name: "Mark-Paul Gosselaar", photo: "" },
 	];
 	initialData.map(card => {
 		store.dispatch({
