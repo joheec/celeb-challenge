@@ -1,9 +1,7 @@
 import React from 'react';
 import './style.scss';
 
-export default (props) => {
-  const cards = props.cards;
-  const removeCard = props.removeCard;
+export default ({ cards, removeCard }) => {
   const defaultPhoto = "components/card-list/close.png";
   return(
     <div className='card-list'>
