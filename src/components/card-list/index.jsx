@@ -7,7 +7,7 @@ export default (props) => {
   const defaultPhoto = "components/card-list/close.png";
   return(
     <div className='card-list'>
-      {cards.map(card => 
+      {cards.slice().reverse().map(card => 
         <div key={card.id} className='card'>
           <img src={defaultPhoto} className="close-button" onClick={() => removeCard(card.id)}></img>
           <img src={card.photo} alt={card.name} className="celeb-photo" /> 
