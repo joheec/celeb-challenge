@@ -8,8 +8,8 @@ export default (props) => {
     <div className='card-list'>
       {cards.map(card => 
         <div key={card.id} className='card'>
-          <span className="close-button" onClick={() => removeCard(card.id)}>&#215;</span>
-          <img src={card.photo} alt={card.name} /> 
+          <img src="./close.png" className="close-button" onClick={() => removeCard(card.id)}></img>
+          <img src={card.photo} alt={card.name} className="celeb-photo" /> 
           <span className="celeb-name">{card.name}</span>
         </div>
       )}
