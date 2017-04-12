@@ -8,7 +8,7 @@ export default (props) => {
   return(
     <form>  
       <div>
-        <label>Full Name</label>
+        <label className="name">Full Name</label>
         <input ref={ node => { name = node; }} required></input>
       </div>
       <div>
