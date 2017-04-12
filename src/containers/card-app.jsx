@@ -8,7 +8,7 @@ import CardList from '../components/card-list';
 const CardApp = ({ cards, actions }) => (
   <div>
     <CardForm addCard={actions.addCard} />
-    <CardList cards={cards} />
+    <CardList cards={cards} removeCard={actions.removeCard} />
   </div>
 );
 
