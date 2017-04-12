@@ -1,8 +1,7 @@
 import React from 'react';
 import './style.scss';
 
-export default (props) => {
-  const addCard = props.addCard;
+export default ({ addCard }) => {
   let name;
   let photo;
   return(
